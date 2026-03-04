@@ -1,0 +1,9 @@
+{
+  "name": "line-car-assessment-bot",
+  "version": "1.0.0",
+  "description": "LINE Bot for used car assessment",
+  "main": "api/webhook.js",
+  "engines": {
+    "node": ">=18"
+  }
+}
