@@ -216,11 +216,12 @@ async function handleStep(userId, replyToken, input, session) {
         (hasPhoto ? "写真もありがとうございます！📸\n\n" : "") +
           "✅ 査定依頼を受け付けました！\n\n" +
           "スタッフが内容を確認のうえ、概算金額を\n営業時間内（09:00〜17:30）に\nこちらのトークにお送りします。\n\n" +
-          "今しばらくお待ちください😊"
+          "今しばらくお待ちください😊\n\n" +
+          "※ 別の車を査定したい場合は「査定」と送ってください。"  // ← 追加
       ),
     ]);
 
-    userSessions[userId] = { step: "start" };
+    userSessions[userId] = { step: "done" };
   }
 }
 
@@ -261,7 +262,7 @@ module.exports = async (req, res) => {
 
     // セッション初期化
     if (!userSessions[userId]) {
-      userSessions[userId] = { step: "start" };
+      userSessions[userId] = { step: "done" };
     }
     const session = userSessions[userId];
 
